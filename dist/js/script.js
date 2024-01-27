@@ -33,3 +33,40 @@ window.addEventListener('click', function(e) {
         navMenu.classList.add('hidden'); 
     }
 });
+
+// Dark toggle
+const darkToggle = document.querySelector('#dark-toggle');
+const html = document.querySelector('html');
+
+const blobLight = document.querySelector('#blob-light');
+const blobDark = document.querySelector('#blob-dark');
+
+darkToggle.addEventListener('click', function() {
+    if (darkToggle.checked) {
+        html.classList.add('dark');
+
+        blobLight.classList.add('hidden');
+        blobDark.classList.remove('hidden');
+
+        localStorage.theme = 'dark';
+    }else{
+        html.classList.remove('dark');
+
+        blobLight.classList.remove('hidden');
+        blobDark.classList.add('hidden');
+
+        localStorage.theme = 'light';
+    }
+});
+
+if(localStorage.getItem('theme') == 'dark'){
+    blobLight.classList.add('hidden');
+    blobDark.classList.remove('hidden');
+
+    darkToggle.checked = true;
+}else{
+    blobLight.classList.remove('hidden');
+    blobDark.classList.add('hidden');
+
+    darkToggle.checked = false;
+}

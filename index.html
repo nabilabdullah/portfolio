@@ -5,6 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="src/output.css" rel="stylesheet">
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <title>Portfolio</title>
 </head>
 <body>
@@ -14,7 +21,7 @@
         <div class="container mx-auto p-4">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
-                    <a href="#home" class="font-bold text-lg text-primary block py-6">nabilabdullah</a>
+                    <a href="#home" class="font-bold text-lg text-primary block py-6 dark:text-info">nabilabdullah</a>
                 </div>
                 <div class="flex items-center px-4">
                     <button id="humberger" name="humberger" type="button" class="block absolute right-4 lg:hidden">
@@ -22,25 +29,37 @@
                         <span class="humberger-line transition duration-300"></span>
                         <span class="humberger-line transition duration-300 origin-bottom-left"></span>
                     </button>
-                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:max-w-full lg:bg-transparent lg:shadow-none lg:rounded-none">
+                    <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:max-w-full lg:bg-transparent lg:shadow-none lg:rounded-none dark:bg-dark dark:shadow-secondary dark:lg:bg-transparent">
                         <ul class="block lg:flex ">
                             <li class="group">
-                                <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Beranda</a>
+                                <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-secondary dark:group-hover:text-info">Beranda</a>
                             </li>
                             <li class="group">
-                                <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Tentang Saya</a>
+                                <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-secondary dark:group-hover:text-info">Tentang Saya</a>
                             </li>
                             <li class="group">
-                                <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Portfolio</a>
+                                <a href="#portfolio" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-secondary dark:group-hover:text-info">Portfolio</a>
                             </li>
                             <li class="group">
-                                <a href="#clients" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Clients</a>
+                                <a href="#clients" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-secondary dark:group-hover:text-info">Clients</a>
                             </li>
                             <li class="group">
-                                <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Blog</a>
+                                <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-secondary dark:group-hover:text-info">Blog</a>
                             </li>
                             <li class="group">
-                                <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary">Kontak</a>
+                                <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-secondary dark:group-hover:text-info">Kontak</a>
+                            </li>
+                            <li class="flex items-center pl-8 mt-3 lg:mt-0">
+                                <div class="flex">
+                                    <span class="mr-2 text-sm text-info">light</span>
+                                    <input type="checkbox" class="hidden" id="dark-toggle" />
+                                    <label for="dark-toggle">
+                                        <div class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-secondary p-1">
+                                            <div class="toggle-circle h-4 w-4 rounded-full bg-primary transition duration-300 ease-in-out"></div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-info">dark</span>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -51,23 +70,28 @@
     <!-- Header End -->
     
     <!-- Hero Section Start -->
-    <section id="home" class="pt-36">
+    <section id="home" class="pt-36 dark:bg-dark">
         <div class="container mx-auto p-4">
             <div class="flex flex-wrap">
                  <div class="w-fu ll self-center px-4 lg:w-1/2">
-                    <h1 class="text-base font-semibold text-primary md:text-xl ">Halo Semua, saya <span class="block font-bold text-dark text-4xl mt-1 lg:text-5xl ">Nabil Abdullah</span></h1>
-                    <h2 class="font-medium text-base text-info mb-5 lg:text-lg ">Fullstack Web Developer</h2>
-                    <p class="font-medium text-dark leading-relaxed mb-10">Programming adalah hobi yang sangat <span class="font-bold text-primary">menyenangkan!</span></p>
+                    <h1 class="text-base font-semibold text-primary md:text-xl dark:text-secondary">Halo Semua, saya <span class="block font-bold text-dark text-4xl mt-1 lg:text-5xl dark:text-info">Nabil Abdullah</span></h1>
+                    <h2 class="font-medium text-base text-info mb-5 lg:text-lg dark:text-primary">Fullstack Web Developer</h2>
+                    <p class="font-medium text-dark leading-relaxed mb-10 dark:text-secondary">Programming adalah hobi yang sangat <span class="font-bold text-primary dark:text-info">menyenangkan!</span></p>
 
-                    <a href="#" class="text-base font-semibold text-secondary bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Hubungi Saya</a>
+                    <a href="#" class="text-base font-semibold text-secondary bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out dark:bg-info dark:text-primary">Hubungi Saya</a>
                  </div>
 
                  <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:top-0 lg:right-0">
-                        <img src="dist/img/nabilabdullah.png" alt="Nabil Abdullah" class="max-w-full mx-auto">
-                        <span class="absolute -bottom-0 -z-10 left-1/2   -translate-x-1/2 lg:scale-125">
-                            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <img src="dist/img/nabilabdullah.png" alt="Nabil Abdullah" class="relative z-10 max-w-full mx-auto">
+                        <span class="absolute -bottom-0 left-1/2 -translate-x-1/2 lg:scale-125">
+                            <!-- Blob Light -->
+                            <svg id="blob-light" width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="#116466" d="M41.7,-64.5C52.1,-58.1,57.2,-43.3,61.9,-29.4C66.6,-15.4,70.7,-2.3,71.7,12.3C72.7,26.9,70.5,43.1,60.8,50.6C51.1,58.2,33.8,57.1,17.8,62.7C1.9,68.2,-12.7,80.4,-27.8,81.9C-43,83.3,-58.8,74,-62.6,59.7C-66.3,45.5,-58,26.3,-53.9,11.8C-49.8,-2.8,-49.8,-12.8,-48.3,-24.5C-46.7,-36.2,-43.6,-49.6,-35.3,-56.9C-27,-64.2,-13.5,-65.4,1.1,-67C15.6,-68.7,31.2,-70.8,41.7,-64.5Z" transform="translate(100 100) scale(1)" />
+                              </svg>
+                              <!-- Blob Dark -->
+                              <svg id="blob-dark" class="hidden" width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="#D9B08C" d="M41.7,-64.5C52.1,-58.1,57.2,-43.3,61.9,-29.4C66.6,-15.4,70.7,-2.3,71.7,12.3C72.7,26.9,70.5,43.1,60.8,50.6C51.1,58.2,33.8,57.1,17.8,62.7C1.9,68.2,-12.7,80.4,-27.8,81.9C-43,83.3,-58.8,74,-62.6,59.7C-66.3,45.5,-58,26.3,-53.9,11.8C-49.8,-2.8,-49.8,-12.8,-48.3,-24.5C-46.7,-36.2,-43.6,-49.6,-35.3,-56.9C-27,-64.2,-13.5,-65.4,1.1,-67C15.6,-68.7,31.2,-70.8,41.7,-64.5Z" transform="translate(100 100) scale(1)" />
                               </svg>
                         </span>
                     </div>
@@ -78,40 +102,40 @@
     <!-- Hero Section End -->
 
     <!-- About Section Start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
         <div class="container mx-auto p-4">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
                     <h4 class="font-bold uppercase text-primary text-lg mb-3">Tentang Saya</h4>
-                    <h2 class="font-bold text-dark text-2xl mb-5 max-w-md lg:text-3 xl">Menjadi programmer itu mudah!</h2>
-                    <p class="font-medium text-base text-info max-w-xl lg:text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum delectus cupiditate quo soluta officia, iusto inventore.</p>
+                    <h2 class="font-bold text-dark text-2xl mb-5 max-w-md lg:text-3 xl dark:text-info">Menjadi programmer itu mudah!</h2>
+                    <p class="font-medium text-base text-info max-w-xl lg:text-lg dark:text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum delectus cupiditate quo soluta officia, iusto inventore.</p>
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
-                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10">Mari berteman</h3>
-                    <p class="font-medium text-base text-info max-w-xl mb-6 lg:text-lg">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus excepturi nesciunt amet asperiores fuga ratione explicabo qui vel.</p>
+                    <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-info">Mari berteman</h3>
+                    <p class="font-medium text-base text-info max-w-xl mb-6 lg:text-lg dark:text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus excepturi nesciunt amet asperiores fuga ratione explicabo qui vel.</p>
                     <div class="flex items-center">
                         <!-- Instagram -->
-                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500">
+                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500 dark:text-secondary">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
                         </a>
 
                         <!-- Twitter -->
-                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500">
+                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500 dark:text-secondary">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
                         </a>
 
                         <!-- LinkedIn -->
-                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500">
+                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500 dark:text-secondary">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                         </a>
 
                         <!-- GitHub -->
-                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500">
+                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500 dark:text-secondary">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
                         </a>
 
                         <!-- GitLab -->
-                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500">
+                        <a href="#" target="_blank" class="flex justify-center items-center w-9 h-9 mr-3 rounded-full border border-secondary text-primary hover:bg-primary hover:text-secondary transition duration-500 dark:text-secondary">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitLab</title><path d="m23.6004 9.5927-.0337-.0862L20.3.9814a.851.851 0 0 0-.3362-.405.8748.8748 0 0 0-.9997.0539.8748.8748 0 0 0-.29.4399l-2.2055 6.748H7.5375l-2.2057-6.748a.8573.8573 0 0 0-.29-.4412.8748.8748 0 0 0-.9997-.0537.8585.8585 0 0 0-.3362.4049L.4332 9.5015l-.0325.0862a6.0657 6.0657 0 0 0 2.0119 7.0105l.0113.0087.03.0213 4.976 3.7264 2.462 1.8633 1.4995 1.1321a1.0085 1.0085 0 0 0 1.2197 0l1.4995-1.1321 2.4619-1.8633 5.006-3.7489.0125-.01a6.0682 6.0682 0 0 0 2.0094-7.003z"/></svg>
                         </a>
                     </div>
@@ -122,42 +146,42 @@
     <!-- About Section End -->
 
     <!-- Portfolio Section Start -->
-    <section id="portfolio" class="pt-36 pb-16 bg-secondary">
+    <section id="portfolio" class="pt-36 pb-16 bg-secondary dark:bg-primary">
         <div class="container mx-auto p-4">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2 md:text-xl">Portfolio</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl md:text-5xl">Project Saya</h2>
-                    <p class="font-medium text-md text-dark opacity-85 md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto culpa libero dicta aperiam quas corrupti labore quo explicabo itaque sequi.</p>
+                    <h4 class="font-semibold text-lg text-primary mb-2 md:text-xl dark:text-dark">Portfolio</h4>
+                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl md:text-5xl dark:text-info">Project Saya</h2>
+                    <p class="font-medium text-md text-dark opacity-85 md:text-lg dark:text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto culpa libero dicta aperiam quas corrupti labore quo explicabo itaque sequi.</p>
                 </div>
             </div>
             <div class="w-full px-4 flex flex-wrap justify-center lg:w-10/12 lg:mx-auto">
                 <div class="mb-4 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
+                    <div class="rounded-md shadow-md overflow-hidden dark:shadow-secondary">
                         <img src="dist/img/portfolio1.png" alt="Aplikasi Toko Bangunan" class="w-full">
-                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2">Aplikasi Toko Bangunan</h3>
-                        <p class="text-base text-dark font-medium px-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ratione nihil consequuntur aspernatur.</p>
+                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2 dark:text-info">Aplikasi Toko Bangunan</h3>
+                        <p class="text-base text-dark font-medium px-2 dark:text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ratione nihil consequuntur aspernatur.</p>
                     </div>
                 </div>
                 <div class="mb-4 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
+                    <div class="rounded-md shadow-md overflow-hidden dark:shadow-secondary">
                         <img src="dist/img/portfolio2.png" alt="Aplikasi Booking Studio Foto" class="w-full">
-                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2">Aplikasi Booking Studio Foto</h3>
-                        <p class="text-base text-dark font-medium px-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae aspernatur soluta autem totam.</p>
+                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2 dark:text-info">Aplikasi Booking Studio Foto</h3>
+                        <p class="text-base text-dark font-medium px-2 dark:text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae aspernatur soluta autem totam.</p>
                     </div>
                 </div>
                 <div class="mb-4 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
+                    <div class="rounded-md shadow-md overflow-hidden dark:shadow-secondary">
                         <img src="dist/img/portfolio3.png" alt="Sistem Remunerasi" class="w-full">
-                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2">Sistem Remunerasi</h3>
-                        <p class="text-base text-dark font-medium px-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quae mollitia sequi deleniti.</p>
+                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2 dark:text-info">Sistem Remunerasi</h3>
+                        <p class="text-base text-dark font-medium px-2 dark:text-secondary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet quae mollitia sequi deleniti.</p>
                     </div>
                 </div>
                 <div class="mb-4 p-4 md:w-1/2">
-                    <div class="rounded-md shadow-md overflow-hidden">
+                    <div class="rounded-md shadow-md overflow-hidden dark:shadow-secondary">
                         <img src="dist/img/portfolio4.png" alt="Aplikasi Pengajuan Online Suket Waris" class="w-full">
-                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2">Aplikasi Pengajuan Online Suket Waris</h3>
-                        <p class="text-base text-dark font-medium px-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, explicabo.</p>
+                        <h3 class="font-semibold text-xl text-primary mt-5 mb-3 px-2 dark:text-info">Aplikasi Pengajuan Online Suket Waris</h3>
+                        <p class="text-base text-dark font-medium px-2 dark:text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequatur, explicabo.</p>
                     </div>
                 </div>
             </div>
@@ -166,12 +190,12 @@
     <!-- Portfolio Section End -->
 
     <!-- Clients Section Start -->
-    <section id="clients" class="pt-36 pb-32 bg-dark"> 
+    <section id="clients" class="pt-36 pb-32 bg-dark dark:bg-secondary"> 
         <div class="container mx-auto p-4">
             <div class="w-full px-4">
                 <div class="mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-secondary mb-2 md:text-xl">Clients</h4>
-                    <h2 class="font-bold text-info text-3xl mb-4 sm:text-4xl md:text-5xl">Yang Pernah Bekerja Sama</h2>
+                    <h4 class="font-semibold text-lg text-secondary mb-2 md:text-xl dark:text-info">Clients</h4>
+                    <h2 class="font-bold text-info text-3xl mb-4 sm:text-4xl md:text-5xl dark:text-dark">Yang Pernah Bekerja Sama</h2>
                     <p class="font-medium text-md text-primary opacity-85 md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 </div>
             </div>
@@ -197,24 +221,24 @@
     <!-- Clients Section End -->
 
     <!-- Blog Section Start -->
-    <section id="blog" class="pt-36 pb-32 bg-secondary">
+    <section id="blog" class="pt-36 pb-32 bg-secondary dark:bg-dark">
         <div class="container mx-auto p-4">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2 md:text-xl">Blog</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl md:text-5xl">Tulisan Terkini</h2>
-                    <p class="font-medium text-md text-dark opacity-85 md:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil.</p>
+                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl md:text-5xl dark:text-info">Tulisan Terkini</h2>
+                    <p class="font-medium text-md text-dark opacity-85 md:text-lg dark:text-secondary">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, nihil.</p>
                 </div>
             </div>
             <div class="flex flex-wrap">
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4 dark:bg-secondary">
                         <img src="https://source.unsplash.com/360x200?programming" alt="Programming" class="w-full">
                         <div class="px-6 py-8">
                             <h3>
-                                <a href="#" class="block text-xl font-semibold mb-3 text-dark truncate hover:text-primary">Tips Menjadi Programmer</a>
+                                <a href="#" class="block text-xl font-semibold mb-3 text-dark truncate hover:text-primary dark:text-dark dark:hover:text-primary">Tips Menjadi Programmer</a>
                             </h3>
-                            <p class="font-medium text-base text-dark text-opacity-85 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minus.</p>
+                            <p class="font-medium text-base text-dark text-opacity-85 mb-6 dark:text-dark">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minus.</p>
                             <a href="#" class="font-medium text-sm text-secondary bg-primary py-2 px-4 rounded-lg hover:bg-opacity-85">
                                 Baca Selengkapnya
                             </a>
@@ -222,13 +246,13 @@
                     </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4 dark:bg-secondary">
                         <img src="https://source.unsplash.com/360x200?coffee" alt="Coffee" class="w-full">
                         <div class="px-6 py-8">
                             <h3>
-                                <a href="#" class="block text-xl font-semibold mb-3 text-dark truncate hover:text-primary">Teman Dikala Ngoding</a>
+                                <a href="#" class="block text-xl font-semibold mb-3 text-dark truncate hover:text-primary dark:text-dark dark:hover:text-primary">Teman Dikala Ngoding</a>
                             </h3>
-                            <p class="font-medium text-base text-dark text-opacity-85 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minus.</p>
+                            <p class="font-medium text-base text-dark text-opacity-85 mb-6 dark:text-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minus.</p>
                             <a href="#" class="font-medium text-sm text-secondary bg-primary py-2 px-4 rounded-lg hover:bg-opacity-85">
                                 Baca Selengkapnya
                             </a>
@@ -236,13 +260,13 @@
                     </div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-4 dark:bg-secondary">
                         <img src="https://source.unsplash.com/360x200?vespa+classic" alt="Vespa" class="w-full">
                         <div class="px-6 py-8">
                             <h3>
-                                <a href="#" class="block text-xl font-semibold mb-3 text-dark truncate hover:text-primary">Klasik Otomotif</a>
+                                <a href="#" class="block text-xl font-semibold mb-3 text-dark truncate hover:text-primary dark:text-dark dark:hover:text-primary">Klasik Otomotif</a>
                             </h3>
-                            <p class="font-medium text-base text-dark text-opacity-85 mb-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minus.</p>
+                            <p class="font-medium text-base text-dark text-opacity-85 mb-6 dark:text-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, minus.</p>
                             <a href="#" class="font-medium text-sm text-secondary bg-primary py-2 px-4 rounded-lg hover:bg-opacity-85">
                                 Baca Selengkapnya
                             </a>
@@ -254,31 +278,31 @@
     <!-- Blog Section End -->
 
     <!-- Contact Section Start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-secondary">
         <div class="container mx-auto p-4">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
-                    <h4 class="font-semibold text-lg text-primary mb-2 md:text-xl">Contact</h4>
+                    <h4 class="font-semibold text-lg text-primary mb-2 md:text-xl dark:text-info">Contact</h4>
                     <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl md:text-5xl">Hubungi Saya</h2>
-                    <p class="font-medium text-md text-info opacity-85 md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, ut.</p>
+                    <p class="font-medium text-md text-info opacity-85 md:text-lg dark:text-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, ut.</p>
                 </div>
             </div>
             <form action="">
                 <div class="w-full lg:w-2/3 lg:mx-auto">
                     <div class="w-full px-4 mb-8">
-                        <label for="name" class="text-base font-bold text-primary ">Nama</label>
-                        <input type="text" id="name" class="w-full bg-secondary text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" />
+                        <label for="name" class="text-base font-bold text-primary dark:text-dark">Nama</label>
+                        <input type="text" id="name" class="w-full bg-secondary text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary dark:bg-info dark:text-dark dark:focus:ring-primary dark:focus:border-primary" />
                     </div>
                     <div class="w-full px-4 mb-8">
-                        <label for="email" class="text-base font-bold text-primary ">Email</label>
-                        <input type="text" id="email" class="w-full bg-secondary text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" />
+                        <label for="email" class="text-base font-bold text-primary dark:text-dark">Email</label>
+                        <input type="text" id="email" class="w-full bg-secondary text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary dark:bg-info dark:text-dark dark:focus:ring-primary dark:focus:border-primary" />
                     </div>
                     <div class="w-full px-4 mb-8">
-                        <label for="message" class="text-base font-bold text-primary ">Pesan</label>
-                        <textarea type="text" id="message" class="w-full bg-secondary text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"></textarea>
+                        <label for="message" class="text-base font-bold text-primary dark:text-dark">Pesan</label>
+                        <textarea type="text" id="message" class="w-full bg-secondary text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32 dark:bg-info dark:text-dark dark:focus:ring-primary dark:focus:border-primary"></textarea>
                     </div>
                     <div class="w-full px-4">
-                        <button type="button" class="text-base font-semibold text-secondary bg-primary py-3 rounded-full w-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out">Kirim</button>
+                        <button type="button" class="text-base font-semibold text-secondary bg-primary py-3 rounded-full w-full hover:shadow-lg hover:opacity-90 transition duration-300 ease-in-out dark:bg-dark dark:text-secondary">Kirim</button>
                     </div>
                 </div>
             </form>
